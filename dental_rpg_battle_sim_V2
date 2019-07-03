@@ -1,0 +1,101 @@
+# dental_rpg_battle_sim.py
+# date: 1/07/2019
+# Author: Benjamin Ameye
+import random
+#The characters max HP, MP and list of special attacks
+# Paste man
+paste_man_HP = 475
+paste_man_MP = 120
+paste_man_special_attacks = {'A': 'Toothpaste squirt', 'B': 'tooth pick jab', 'C': 'clean breathe'}
+paste_man_costs = ['9 MP', '16 MP', '18 MP']
+paste_man_results = [{15, 20}, {30, 45}, {40,50}]
+# Brusher
+brusher_HP = 410
+brusher_MP = 115
+brusher_special_attacks = {'A': 'Brush smack', 'B': 'Ultimate Scrub', 'C': 'Clean rinse', 'D': 'Add toothpaste'}
+brusher_costs = ['7 MP', '8 MP', '12 MP', '18MP']
+brusher_results = [{20, 25}, {35, 45}, {50, 55}, 1.50]
+# Mouth washer
+mouth_washer_HP = 360
+mouth_washer_MP = 145
+mouth_washer_special_attacks = {'A': 'Dental floss whip', 'B': 'Teeth cleaner', 'C': 'Mouthwash Blast', 'D': 'Full clean'}
+mouth_washer_costs = ['8 MP', '16 MP', '21 MP', '22 MP']
+mouth_washer_results = [{10, 15}, '75 HP', {35, 45}, '75 HP']
+
+
+# Enemies
+Bacteria_HP = 1200
+Bacteria_attacks = {'Normal attack': [10, 15],'Rain of germs': [30, 50], 'infected strike': [25, 35], 'Bad breathe': [10, 15]}
+infected_tooth_HP = 1075
+infected_tooth_attacks = {'Normal attack': [10, 20], 'decaying spit':[20, 25], 'Potato chips': 1.50, 'infected bite': [30, 40]}
+germ_pile_HP = 1400
+germ_pile_attacks = {'Normal attack':[5, 10], 'Actinomyces whip':[15, 20], 'Fusobacterium rain':[15, 20], 'Candida spray':[30, 40]}
+bosses = ['Bacteria', 'Infected_tooth', 'germ_pile']
+
+
+def select_enemy():
+    boss = random.choice(bosses)
+    boss_HP = 0
+    boss_attacks = {}
+    if boss == bosses[0]:
+        boss_HP = Bacteria_HP
+        boss_attacks = Bacteria_attacks
+        print("Your fighting {}".format(boss))
+        print(boss_HP)
+        print(boss_attacks)
+    elif boss == bosses[1]:
+        boss_HP = infected_tooth_HP
+        boss_attacks = infected_tooth_attacks
+        print("Your fighting a {}".format(boss))
+        print(boss_HP)
+        print(boss_attacks)
+    elif boss == bosses[2]:
+        boss_HP = germ_pile_HP
+        boss_attacks = germ_pile_attacks
+        print("Your fighting a {}".format(boss))
+        print(boss_HP)
+        print(boss_attacks)
+    
+
+def rules():
+    print("""Welcome to my Dental RPG battle sim, you'll fight bacteria and infected teeth with a team of characters and attack in turns. You can either
+          use all 3 characters by yourself or have some friends play with you, with each of them using a different character.""")
+
+def paste_man_turn():
+    for letter, name in sorted(paste_man_special_attacks.items()):
+        print(letter, name)
+    for x,y in zip(paste_man_costs,paste_man_results):
+        print(x, y)
+
+def brusher_turn():
+    for letter, name in sorted(brusher_special_attacks.items()):
+        print(letter, name)
+    for x, y in zip(brusher_costs, brusher_results):
+        print(x, y)
+
+def mouth_washer_turn():
+    for letter, name in sorted(mouth_washer_special_attacks.items()):
+        print(letter, name)
+    for x, y in zip(mouth_washer_costs, mouth_washer_results):
+        print(x, y)
+
+def boss_turn():
+    print(boss)
+    print(boss_HP)
+    print(boss_attacks)
+    
+
+def turn_order(boss, boss_HP, boss_attacks):
+    paste_man_turn()
+    brusher_turn()
+    mouth_washer_turn()
+    boss_turn()
+        
+def game():
+    select_enemy()
+    boss_turn()
+
+
+rules()
+game()
+

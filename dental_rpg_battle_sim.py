@@ -61,7 +61,7 @@ paste_man_STR_required = [2, 3, 5, 8]
 paste_man_STR_damage = {1: [70, 75], 2: [30, 40], 3: [40, 55], 4: [105, 115]}
 paste_man_normal_attack = [15, 25]
 # Brusher attacks, HP, STR and MP
-brusher_HP = 3
+brusher_HP = 410
 brusher_HP_max = 410
 brusher_MP = 115
 brusher_MP_max = 115

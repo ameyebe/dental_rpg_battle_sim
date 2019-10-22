@@ -10,4 +10,5 @@ After winning a fight you can either enter 'Y', or 'N'.
 Entering 'Y' will have you fight another randomly selected enemy, with all you characters current HP, MP, STR and item amounts carried over.
 Entering 'N' will end the code and give you a grade from f to s based on how many fights you won.
 If all 3 characters HP hit 0, the game will end and you'll get the grade based on how many fights you won.
+Doesn't matter whether the inputs you enter are in capital or normal, they'll still work.
 Please enjoy my code, don't get offended if the grade you end up with after a battle is offensive, and get to cleaning those teeth.
